@@ -5,12 +5,16 @@ import static input.InputUtils.doubleInput;
 public class BusFares {
     public static void main(String[] args) {
 
-        int numberOfDays = 7;
-        double total = 0;
+//       final int NUMBER_OF_DAYS = 7; // Use keyword final to indicate a constant value
 
-        for (int day = 1; day <= numberOfDays ; day++){
+        String[] dayNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+        double total = 0;
+        // Off by one error , change day = 1 to day = 0 to start with Monday.
+        for (int day = 0; day < dayNames.length ; day++){
+            String dayName = dayNames[day];
             double amountSpent =
-                    doubleInput("What did you spend on bus fares on day " + day);
+                    doubleInput("What did you spend on bus fares on day " + dayName);
 
             total = total + amountSpent;
         }
